@@ -119,7 +119,7 @@ describe Movie do
   
         expect do 
           movie.update_with_attributes(title: "Even Awesomer Flick")
-        end.to change(movie, :title).from("Awesome Flick").to("Even Awesomer Flick")
+        end.to change { movie.reload.title }.from("Awesome Flick").to("Even Awesomer Flick")
       end
     end
 
